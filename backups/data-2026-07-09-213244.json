@@ -1,0 +1,179 @@
+{
+  "players": [
+    {
+      "id": "p1",
+      "name": "Gonzo",
+      "avatar": "🐺"
+    },
+    {
+      "id": "p2",
+      "name": "Megan",
+      "avatar": "🐼"
+    }
+  ],
+  "activities": [
+    {
+      "id": "exercise",
+      "name": "Exercise",
+      "emoji": "🏋️",
+      "unit": "min",
+      "pointsPerUnit": 1,
+      "target": 4500
+    },
+    {
+      "id": "reading",
+      "name": "Reading",
+      "emoji": "📚",
+      "unit": "pages",
+      "pointsPerUnit": 1,
+      "target": 2500
+    },
+    {
+      "id": "alcohol",
+      "name": "Margarita",
+      "emoji": "🍺",
+      "unit": "points",
+      "pointsPerUnit": -75,
+      "target": 0
+    },
+    {
+      "id": "custom-3e2d5b1a",
+      "name": "Take Out",
+      "emoji": "🍕",
+      "unit": "points",
+      "pointsPerUnit": -45,
+      "target": 0
+    },
+    {
+      "id": "custom-ebd3f00a",
+      "name": "Beer/Wine",
+      "emoji": "⚠️",
+      "unit": "times",
+      "pointsPerUnit": -25,
+      "target": 0
+    }
+  ],
+  "log": [
+    {
+      "id": "ee9434c5-2369-433e-aabc-d1285550447d",
+      "activityId": "exercise",
+      "playerId": "p2",
+      "quantity": 45,
+      "points": 45,
+      "timestamp": 1783278875417
+    },
+    {
+      "id": "2c2dcfdb-1d0b-4224-8614-e567ad8be395",
+      "activityId": "exercise",
+      "playerId": "p1",
+      "quantity": 45,
+      "points": 45,
+      "timestamp": 1783278879437
+    },
+    {
+      "id": "e003d9d5-4224-4ae7-98ec-23ed60610ea8",
+      "activityId": "reading",
+      "playerId": "p2",
+      "quantity": 11,
+      "points": 11,
+      "timestamp": 1783346306854
+    },
+    {
+      "id": "5c728b9c-fd88-45e5-b44b-5bc350875e5e",
+      "activityId": "exercise",
+      "playerId": "p1",
+      "quantity": 33,
+      "points": 33,
+      "timestamp": 1783376067456
+    },
+    {
+      "id": "637c0cde-6539-48ea-80ea-28ef4d686d42",
+      "activityId": "exercise",
+      "playerId": "p2",
+      "quantity": 33,
+      "points": 33,
+      "timestamp": 1783376074811
+    },
+    {
+      "id": "a227e9c4-6363-4cba-8d67-391540b8a596",
+      "activityId": "reading",
+      "playerId": "p2",
+      "quantity": 17,
+      "points": 17,
+      "timestamp": 1783465609879
+    },
+    {
+      "id": "e4852753-8f4c-4998-8780-c2af58bca16b",
+      "activityId": "exercise",
+      "playerId": "p2",
+      "quantity": 20,
+      "points": 20,
+      "timestamp": 1783480659039
+    },
+    {
+      "id": "e711bf5e-1d95-4b37-a566-64d1a23bb4f2",
+      "activityId": "exercise",
+      "playerId": "p1",
+      "quantity": 28,
+      "points": 28,
+      "timestamp": 1783480714966
+    },
+    {
+      "id": "63afadb2-394e-41d5-a6f6-68f93422ba2c",
+      "activityId": "custom-ebd3f00a",
+      "playerId": "p2",
+      "quantity": 1,
+      "points": -25,
+      "timestamp": 1783566523441
+    },
+    {
+      "id": "fc9bf5b8-5f01-4288-b0b1-5eda7c4c9bfd",
+      "activityId": "exercise",
+      "playerId": "p2",
+      "quantity": 40,
+      "points": 40,
+      "timestamp": 1783566549607
+    },
+    {
+      "id": "290abdf1-acdd-4c3a-8035-1b55441e7b9f",
+      "activityId": "reading",
+      "playerId": "p1",
+      "quantity": 15,
+      "points": 15,
+      "timestamp": 1783566581994
+    },
+    {
+      "id": "2d49a2fc-e82a-4f71-af4d-ad1e8f71418a",
+      "activityId": "exercise",
+      "playerId": "p1",
+      "quantity": 23,
+      "points": 23,
+      "timestamp": 1783566678351
+    },
+    {
+      "id": "ca987998-3abb-4d65-958e-34a48a533a42",
+      "activityId": "reading",
+      "playerId": "p2",
+      "quantity": 11,
+      "points": 11,
+      "timestamp": 1783650588291
+    },
+    {
+      "id": "1747c50b-49cf-417d-87e5-69691165fac7",
+      "activityId": "exercise",
+      "playerId": "p2",
+      "quantity": 45,
+      "points": 45,
+      "timestamp": 1783650594734
+    },
+    {
+      "id": "7b8ed462-6d86-4820-ac36-9276fe91b4e6",
+      "activityId": "exercise",
+      "playerId": "p1",
+      "quantity": 45,
+      "points": 45,
+      "timestamp": 1783650613525
+    }
+  ],
+  "prize": "🏝️ A long weekend getaway"
+}

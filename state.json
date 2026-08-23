@@ -1,0 +1,1091 @@
+{
+  "players": [
+    {
+      "id": "p1",
+      "name": "Gonzo",
+      "avatar": "🐺"
+    },
+    {
+      "id": "p2",
+      "name": "Megan",
+      "avatar": "🐼"
+    }
+  ],
+  "activities": [
+    {
+      "id": "exercise",
+      "name": "Exercise",
+      "emoji": "🏋️",
+      "unit": "min",
+      "pointsPerUnit": 1,
+      "target": 4500
+    },
+    {
+      "id": "reading",
+      "name": "Reading",
+      "emoji": "📚",
+      "unit": "pages",
+      "pointsPerUnit": 1,
+      "target": 2500
+    },
+    {
+      "id": "alcohol",
+      "name": "Margarita",
+      "emoji": "🍺",
+      "unit": "points",
+      "pointsPerUnit": -50,
+      "target": 0
+    },
+    {
+      "id": "custom-3e2d5b1a",
+      "name": "Take Out",
+      "emoji": "🍕",
+      "unit": "points",
+      "pointsPerUnit": -30,
+      "target": 0
+    },
+    {
+      "id": "custom-ebd3f00a",
+      "name": "Beer/Wine",
+      "emoji": "⚠️",
+      "unit": "times",
+      "pointsPerUnit": -25,
+      "target": 0
+    }
+  ],
+  "log": [
+    {
+      "id": "ee9434c5-2369-433e-aabc-d1285550447d",
+      "activityId": "exercise",
+      "playerId": "p2",
+      "quantity": 45,
+      "points": 45,
+      "timestamp": 1783278875417
+    },
+    {
+      "id": "2c2dcfdb-1d0b-4224-8614-e567ad8be395",
+      "activityId": "exercise",
+      "playerId": "p1",
+      "quantity": 45,
+      "points": 45,
+      "timestamp": 1783278879437
+    },
+    {
+      "id": "e003d9d5-4224-4ae7-98ec-23ed60610ea8",
+      "activityId": "reading",
+      "playerId": "p2",
+      "quantity": 11,
+      "points": 11,
+      "timestamp": 1783346306854
+    },
+    {
+      "id": "5c728b9c-fd88-45e5-b44b-5bc350875e5e",
+      "activityId": "exercise",
+      "playerId": "p1",
+      "quantity": 33,
+      "points": 33,
+      "timestamp": 1783376067456
+    },
+    {
+      "id": "637c0cde-6539-48ea-80ea-28ef4d686d42",
+      "activityId": "exercise",
+      "playerId": "p2",
+      "quantity": 33,
+      "points": 33,
+      "timestamp": 1783376074811
+    },
+    {
+      "id": "a227e9c4-6363-4cba-8d67-391540b8a596",
+      "activityId": "reading",
+      "playerId": "p2",
+      "quantity": 17,
+      "points": 17,
+      "timestamp": 1783465609879
+    },
+    {
+      "id": "e4852753-8f4c-4998-8780-c2af58bca16b",
+      "activityId": "exercise",
+      "playerId": "p2",
+      "quantity": 20,
+      "points": 20,
+      "timestamp": 1783480659039
+    },
+    {
+      "id": "e711bf5e-1d95-4b37-a566-64d1a23bb4f2",
+      "activityId": "exercise",
+      "playerId": "p1",
+      "quantity": 28,
+      "points": 28,
+      "timestamp": 1783480714966
+    },
+    {
+      "id": "63afadb2-394e-41d5-a6f6-68f93422ba2c",
+      "activityId": "custom-ebd3f00a",
+      "playerId": "p2",
+      "quantity": 1,
+      "points": -25,
+      "timestamp": 1783566523441
+    },
+    {
+      "id": "fc9bf5b8-5f01-4288-b0b1-5eda7c4c9bfd",
+      "activityId": "exercise",
+      "playerId": "p2",
+      "quantity": 40,
+      "points": 40,
+      "timestamp": 1783566549607
+    },
+    {
+      "id": "290abdf1-acdd-4c3a-8035-1b55441e7b9f",
+      "activityId": "reading",
+      "playerId": "p1",
+      "quantity": 15,
+      "points": 15,
+      "timestamp": 1783566581994
+    },
+    {
+      "id": "2d49a2fc-e82a-4f71-af4d-ad1e8f71418a",
+      "activityId": "exercise",
+      "playerId": "p1",
+      "quantity": 23,
+      "points": 23,
+      "timestamp": 1783566678351
+    },
+    {
+      "id": "ca987998-3abb-4d65-958e-34a48a533a42",
+      "activityId": "reading",
+      "playerId": "p2",
+      "quantity": 11,
+      "points": 11,
+      "timestamp": 1783650588291
+    },
+    {
+      "id": "1747c50b-49cf-417d-87e5-69691165fac7",
+      "activityId": "exercise",
+      "playerId": "p2",
+      "quantity": 45,
+      "points": 45,
+      "timestamp": 1783650594734
+    },
+    {
+      "id": "7b8ed462-6d86-4820-ac36-9276fe91b4e6",
+      "activityId": "exercise",
+      "playerId": "p1",
+      "quantity": 45,
+      "points": 45,
+      "timestamp": 1783650613525
+    },
+    {
+      "id": "689ad563-be5b-487b-8932-d1cfa1a2ca3e",
+      "activityId": "reading",
+      "playerId": "p1",
+      "quantity": 17,
+      "points": 17,
+      "timestamp": 1783651756458,
+      "bookId": "fc2adad3-52ca-4e4e-bde2-8064bb710748"
+    },
+    {
+      "id": "5db42814-0dbd-4f21-9a6b-534c63622bfd",
+      "activityId": "reading",
+      "playerId": "p2",
+      "quantity": 14,
+      "points": 14,
+      "timestamp": 1783721542747,
+      "bookId": "74f980dc-5d04-4e5e-9309-eefca4b35382"
+    },
+    {
+      "id": "adb5769f-c9b6-475a-adca-0530a550fb52",
+      "activityId": "custom-ebd3f00a",
+      "playerId": "p2",
+      "quantity": 1,
+      "points": -25,
+      "timestamp": 1783721547893
+    },
+    {
+      "id": "dc57547f-01f3-40ce-bb06-3b90dc33ae54",
+      "activityId": "reading",
+      "playerId": "p1",
+      "quantity": 14,
+      "points": 14,
+      "timestamp": 1783721604092,
+      "bookId": "fc2adad3-52ca-4e4e-bde2-8064bb710748"
+    },
+    {
+      "id": "5264356f-bf8c-4a39-880e-4fe6d97decfa",
+      "activityId": "exercise",
+      "playerId": "p1",
+      "quantity": 45,
+      "points": 45,
+      "timestamp": 1783795955103
+    },
+    {
+      "id": "382fd66b-26f7-4a19-a998-cf1832833a07",
+      "activityId": "exercise",
+      "playerId": "p2",
+      "quantity": 55,
+      "points": 55,
+      "timestamp": 1783795961083
+    },
+    {
+      "id": "a12ea1c7-7116-44f6-b65a-cf01ba05a3b8",
+      "activityId": "custom-3e2d5b1a",
+      "playerId": "p1",
+      "quantity": 1,
+      "points": -30,
+      "timestamp": 1783809264877
+    },
+    {
+      "id": "5642c623-329f-4f23-bd87-febe62124f17",
+      "activityId": "custom-3e2d5b1a",
+      "playerId": "p2",
+      "quantity": 1,
+      "points": -30,
+      "timestamp": 1783809267672
+    },
+    {
+      "id": "1fa22eec-6ed7-4ddc-a72b-35015edde86b",
+      "activityId": "exercise",
+      "playerId": "p2",
+      "quantity": 45,
+      "points": 45,
+      "timestamp": 1783990120027
+    },
+    {
+      "id": "e9afe309-3d89-422c-9da0-2ce4334daa13",
+      "activityId": "exercise",
+      "playerId": "p2",
+      "quantity": 20,
+      "points": 20,
+      "timestamp": 1783990161875
+    },
+    {
+      "id": "bab91a71-a92e-4d7f-941b-aef440d800d7",
+      "activityId": "exercise",
+      "playerId": "p1",
+      "quantity": 45,
+      "points": 45,
+      "timestamp": 1783990167217
+    },
+    {
+      "id": "10ad459c-a8d7-4c51-9b26-bc8fa1d391cc",
+      "activityId": "reading",
+      "playerId": "p2",
+      "quantity": 26,
+      "points": 26,
+      "timestamp": 1783990189754,
+      "bookId": "74f980dc-5d04-4e5e-9309-eefca4b35382"
+    },
+    {
+      "id": "b556c1ce-efc1-4b1c-bf76-a3498bab0be7",
+      "activityId": "reading",
+      "playerId": "p1",
+      "quantity": 36,
+      "points": 36,
+      "timestamp": 1783990213487,
+      "bookId": "fc2adad3-52ca-4e4e-bde2-8064bb710748"
+    },
+    {
+      "id": "6919ac7a-0b90-4cb4-8232-b864512754a7",
+      "activityId": "exercise",
+      "playerId": "p2",
+      "quantity": 20,
+      "points": 20,
+      "timestamp": 1784084553746
+    },
+    {
+      "id": "97f8a71a-f9a5-4834-9056-9cb0fc8b4c75",
+      "activityId": "exercise",
+      "playerId": "p1",
+      "quantity": 28,
+      "points": 28,
+      "timestamp": 1784084575324
+    },
+    {
+      "id": "94c2fedb-a13b-45f3-833d-ae4b046edd55",
+      "activityId": "exercise",
+      "playerId": "p2",
+      "quantity": 24,
+      "points": 24,
+      "timestamp": 1784169143614
+    },
+    {
+      "id": "53a3d0e5-07a2-4978-9e8c-a2af895b7cc0",
+      "activityId": "exercise",
+      "playerId": "p2",
+      "quantity": 36,
+      "points": 36,
+      "timestamp": 1784254937700
+    },
+    {
+      "id": "a0ebd4a3-b537-4921-ac88-af55822abf13",
+      "activityId": "exercise",
+      "playerId": "p1",
+      "quantity": 30,
+      "points": 30,
+      "timestamp": 1784254942524
+    },
+    {
+      "id": "9b431637-021c-4f76-a21b-d5720debe295",
+      "activityId": "exercise",
+      "playerId": "p2",
+      "quantity": 45,
+      "points": 45,
+      "timestamp": 1784306349280
+    },
+    {
+      "id": "52153f59-7be8-49b7-b484-6eb0f88e7631",
+      "activityId": "custom-ebd3f00a",
+      "playerId": "p2",
+      "quantity": 2,
+      "points": -50,
+      "timestamp": 1784510537502
+    },
+    {
+      "id": "9cadf2ed-55a9-4df3-9f1c-541e3ebdff54",
+      "activityId": "custom-ebd3f00a",
+      "playerId": "p1",
+      "quantity": 2,
+      "points": -50,
+      "timestamp": 1784510544787
+    },
+    {
+      "id": "bef372ee-262e-4163-ad24-f58cd3ebc1a0",
+      "activityId": "custom-ebd3f00a",
+      "playerId": "p1",
+      "quantity": 2,
+      "points": -50,
+      "timestamp": 1784510565136
+    },
+    {
+      "id": "8f868209-3cee-4130-a5a0-c0e7c8816e67",
+      "activityId": "custom-ebd3f00a",
+      "playerId": "p2",
+      "quantity": 1,
+      "points": -25,
+      "timestamp": 1784510567152
+    },
+    {
+      "id": "ebf39872-9c1d-4a4e-9498-55563b7f6c65",
+      "activityId": "custom-ebd3f00a",
+      "playerId": "p1",
+      "quantity": 1,
+      "points": -25,
+      "timestamp": 1784510572547
+    },
+    {
+      "id": "6a1a6b9d-cded-44aa-aec5-810e473c8766",
+      "activityId": "custom-ebd3f00a",
+      "playerId": "p2",
+      "quantity": 1,
+      "points": -25,
+      "timestamp": 1784510573704
+    },
+    {
+      "id": "28559740-b8f0-45d1-9242-b70e8c2fcc9c",
+      "activityId": "custom-ebd3f00a",
+      "playerId": "p2",
+      "quantity": 2,
+      "points": -50,
+      "timestamp": 1784510594993
+    },
+    {
+      "id": "21adc700-9867-406c-95d6-58c1c3ef9273",
+      "activityId": "custom-ebd3f00a",
+      "playerId": "p1",
+      "quantity": 3,
+      "points": -75,
+      "timestamp": 1784510603978
+    },
+    {
+      "id": "53fb2d14-b3cc-4230-a7c1-56a790662998",
+      "activityId": "exercise",
+      "playerId": "p1",
+      "quantity": 45,
+      "points": 45,
+      "timestamp": 1784510614509
+    },
+    {
+      "id": "1582e8c1-1d70-49ef-93f6-281840d1f8ad",
+      "activityId": "exercise",
+      "playerId": "p2",
+      "quantity": 45,
+      "points": 45,
+      "timestamp": 1784510618512
+    },
+    {
+      "id": "dbb75fa5-01fd-4d74-a8ec-35b250edcf29",
+      "activityId": "exercise",
+      "playerId": "p1",
+      "quantity": 45,
+      "points": 45,
+      "timestamp": 1784673672980
+    },
+    {
+      "id": "8184e81c-36c6-414f-921e-8c182ca770d2",
+      "activityId": "exercise",
+      "playerId": "p2",
+      "quantity": 45,
+      "points": 45,
+      "timestamp": 1784673676076
+    },
+    {
+      "id": "b9263889-7f3c-45f5-ac09-d912cedded77",
+      "activityId": "exercise",
+      "playerId": "p1",
+      "quantity": 45,
+      "points": 45,
+      "timestamp": 1785379582035
+    },
+    {
+      "id": "236c8d93-6061-4a50-a40b-a3c13abbacd5",
+      "activityId": "exercise",
+      "playerId": "p2",
+      "quantity": 45,
+      "points": 45,
+      "timestamp": 1785379586750
+    },
+    {
+      "id": "b1c6a496-bf7f-4872-be89-e55aa5448625",
+      "activityId": "__quest__",
+      "playerId": "p2",
+      "quantity": 1,
+      "points": 25,
+      "timestamp": 1785379586750,
+      "questId": "power-pair",
+      "questName": "Power Pair",
+      "questEmoji": "⚡"
+    },
+    {
+      "id": "b3708e09-ee5d-4000-bbd3-f1e8ae0dd43c",
+      "activityId": "__quest__",
+      "playerId": "p2",
+      "quantity": 1,
+      "points": 20,
+      "timestamp": 1785379586750,
+      "questId": "duo-day",
+      "questName": "Team Spirit",
+      "questEmoji": "🤝"
+    },
+    {
+      "id": "fc98dae0-dbb0-48f9-acbe-86ba4c5e2edd",
+      "activityId": "exercise",
+      "playerId": "p1",
+      "quantity": 30,
+      "points": 30,
+      "timestamp": 1785726658221
+    },
+    {
+      "id": "333124b1-8655-445c-8940-9eccfbe800c8",
+      "activityId": "exercise",
+      "playerId": "p2",
+      "quantity": 30,
+      "points": 30,
+      "timestamp": 1785726662639
+    },
+    {
+      "id": "ad55ee4c-b078-46fc-905c-527d4934f40d",
+      "activityId": "__quest__",
+      "playerId": "p2",
+      "quantity": 1,
+      "points": 20,
+      "timestamp": 1785726662639,
+      "questId": "sweat-session",
+      "questName": "Sweat Session",
+      "questEmoji": "💦"
+    },
+    {
+      "id": "77ff6801-296a-4537-a61e-638836459d88",
+      "activityId": "__quest__",
+      "playerId": "p2",
+      "quantity": 1,
+      "points": 15,
+      "timestamp": 1785726662920,
+      "questId": "triple-threat",
+      "questName": "Triple Threat",
+      "questEmoji": "🎯"
+    },
+    {
+      "id": "ed435e61-6d22-4caf-937e-dad316f54fa0",
+      "activityId": "exercise",
+      "playerId": "p1",
+      "quantity": 45,
+      "points": 45,
+      "timestamp": 1785726683930
+    },
+    {
+      "id": "6b277db7-270f-460b-bcc4-168430fef22e",
+      "activityId": "exercise",
+      "playerId": "p2",
+      "quantity": 45,
+      "points": 45,
+      "timestamp": 1785726687020
+    },
+    {
+      "id": "def380b0-7a92-4d01-bf9a-aacd42699bf1",
+      "activityId": "exercise",
+      "playerId": "p2",
+      "quantity": 20,
+      "points": 20,
+      "timestamp": 1785726695281
+    },
+    {
+      "id": "194542eb-12ac-4436-abb0-6e13a9af9b2d",
+      "activityId": "exercise",
+      "playerId": "p1",
+      "quantity": 24,
+      "points": 24,
+      "timestamp": 1785726808342
+    },
+    {
+      "id": "afad63aa-d0df-4b52-bf8f-423d084b83a5",
+      "activityId": "reading",
+      "playerId": "p2",
+      "quantity": 18,
+      "points": 18,
+      "timestamp": 1785726823280,
+      "bookId": "74f980dc-5d04-4e5e-9309-eefca4b35382"
+    },
+    {
+      "id": "8a56d8ce-e752-4b56-b1ac-ae49d1f74bff",
+      "activityId": "custom-ebd3f00a",
+      "playerId": "p2",
+      "quantity": 1,
+      "points": -25,
+      "timestamp": 1785726874457
+    },
+    {
+      "id": "d2c94927-a413-432a-ad12-8411584f5ba6",
+      "activityId": "exercise",
+      "playerId": "p2",
+      "quantity": 45,
+      "points": 45,
+      "timestamp": 1785809861081
+    },
+    {
+      "id": "ba9824aa-5462-4761-b0ed-57a39f718364",
+      "activityId": "__quest__",
+      "playerId": "p2",
+      "quantity": 1,
+      "points": 20,
+      "timestamp": 1785809861082,
+      "questId": "sweat-session",
+      "questName": "Sweat Session",
+      "questEmoji": "💦"
+    },
+    {
+      "id": "098fe6a8-0c1f-46fe-bfb2-6fd05a52a55f",
+      "activityId": "reading",
+      "playerId": "p2",
+      "quantity": 12,
+      "points": 12,
+      "timestamp": 1785809887896,
+      "bookId": "74f980dc-5d04-4e5e-9309-eefca4b35382"
+    },
+    {
+      "id": "9ab3b22c-193e-4d66-836c-ee1033e35662",
+      "activityId": "exercise",
+      "playerId": "p1",
+      "quantity": 45,
+      "points": 45,
+      "timestamp": 1785809896462
+    },
+    {
+      "id": "9ae27938-0a2d-4b04-bae4-81fff33ab296",
+      "activityId": "reading",
+      "playerId": "p1",
+      "quantity": 34,
+      "points": 34,
+      "timestamp": 1785809955546,
+      "bookId": "a4e3bc9c-68c9-4ee7-b34a-5a6a3107f70c"
+    },
+    {
+      "id": "83603ce5-76e3-4f68-8c30-b9058fc8b1bb",
+      "activityId": "__quest__",
+      "playerId": "p1",
+      "quantity": 1,
+      "points": 15,
+      "timestamp": 1785809955546,
+      "questId": "page-turner",
+      "questName": "Page Turner",
+      "questEmoji": "📖"
+    },
+    {
+      "id": "b4348c3d-c498-4c94-9d18-a044956f760f",
+      "activityId": "exercise",
+      "playerId": "p2",
+      "quantity": 20,
+      "points": 20,
+      "timestamp": 1785899083410
+    },
+    {
+      "id": "0da7f5b4-fc60-45ef-b995-c8041e3f5f17",
+      "activityId": "exercise",
+      "playerId": "p1",
+      "quantity": 25,
+      "points": 25,
+      "timestamp": 1785899088065
+    },
+    {
+      "id": "edc47d5c-d3d0-47e5-95e8-30e905474dcd",
+      "activityId": "reading",
+      "playerId": "p2",
+      "quantity": 5,
+      "points": 5,
+      "timestamp": 1785899106372,
+      "bookId": "74f980dc-5d04-4e5e-9309-eefca4b35382"
+    },
+    {
+      "id": "a66b9100-e0af-4426-80d6-13faa519b77c",
+      "activityId": "reading",
+      "playerId": "p1",
+      "quantity": 76,
+      "points": 76,
+      "timestamp": 1785899121202,
+      "bookId": "a4e3bc9c-68c9-4ee7-b34a-5a6a3107f70c"
+    },
+    {
+      "id": "8cd72659-6dc0-4c6e-8fbe-0e57b64448b4",
+      "activityId": "exercise",
+      "playerId": "p2",
+      "quantity": 30,
+      "points": 30,
+      "timestamp": 1786301359257
+    },
+    {
+      "id": "fe3e60b7-90b7-4226-b9f7-d378f60d39b1",
+      "activityId": "exercise",
+      "playerId": "p2",
+      "quantity": 36,
+      "points": 36,
+      "timestamp": 1786301367407
+    },
+    {
+      "id": "d37b258f-1bdc-435d-94f4-9ef62071cba3",
+      "activityId": "exercise",
+      "playerId": "p2",
+      "quantity": 45,
+      "points": 45,
+      "timestamp": 1786301377389
+    },
+    {
+      "id": "dd2b355a-ee62-4c1f-be3c-bfeb58523fff",
+      "activityId": "exercise",
+      "playerId": "p1",
+      "quantity": 45,
+      "points": 45,
+      "timestamp": 1786301381349
+    },
+    {
+      "id": "b52a04e7-f890-49b7-ac89-06b7962d0af7",
+      "activityId": "alcohol",
+      "playerId": "p1",
+      "quantity": 2,
+      "points": -150,
+      "timestamp": 1786301402780
+    },
+    {
+      "id": "4b37a12d-921a-465d-b13c-6227999514cf",
+      "activityId": "alcohol",
+      "playerId": "p2",
+      "quantity": 2,
+      "points": -150,
+      "timestamp": 1786301407707
+    },
+    {
+      "id": "6aae84e9-42d3-4532-9f89-223402a7c268",
+      "activityId": "custom-ebd3f00a",
+      "playerId": "p1",
+      "quantity": 2,
+      "points": -50,
+      "timestamp": 1786301413898
+    },
+    {
+      "id": "5c43826d-2570-4d6e-a61a-e03f91c7dad2",
+      "activityId": "custom-ebd3f00a",
+      "playerId": "p2",
+      "quantity": 1,
+      "points": -25,
+      "timestamp": 1786301415122
+    },
+    {
+      "id": "48781149-9f42-4558-b149-bccc84bae63f",
+      "activityId": "reading",
+      "playerId": "p1",
+      "quantity": 120,
+      "points": 120,
+      "timestamp": 1786301436611,
+      "bookId": "a4e3bc9c-68c9-4ee7-b34a-5a6a3107f70c"
+    },
+    {
+      "id": "763ffa66-4fe3-4f5f-b2da-f19b78ba2ea5",
+      "activityId": "__quest__",
+      "playerId": "p1",
+      "quantity": 1,
+      "points": 5,
+      "timestamp": 1786301436611,
+      "questId": "page-turner",
+      "questName": "Page Turner",
+      "questEmoji": "📖"
+    },
+    {
+      "id": "d7146e8d-d960-4b51-874a-113f063967ca",
+      "activityId": "reading",
+      "playerId": "p2",
+      "quantity": 5,
+      "points": 5,
+      "timestamp": 1786301478329,
+      "bookId": "74f980dc-5d04-4e5e-9309-eefca4b35382"
+    },
+    {
+      "id": "07bf99c5-7690-4adf-b888-9685e22fe488",
+      "activityId": "exercise",
+      "playerId": "p2",
+      "quantity": 25,
+      "points": 25,
+      "timestamp": 1786366280376
+    },
+    {
+      "id": "7413404e-cbf6-42cf-a078-03ff76ddb716",
+      "activityId": "exercise",
+      "playerId": "p1",
+      "quantity": 45,
+      "points": 45,
+      "timestamp": 1786409339736
+    },
+    {
+      "id": "c833c892-f385-4665-a5d6-dbded50961f3",
+      "activityId": "exercise",
+      "playerId": "p2",
+      "quantity": 45,
+      "points": 45,
+      "timestamp": 1786409342399
+    },
+    {
+      "id": "4ce2a372-ee6c-450f-979b-7f41253d4452",
+      "activityId": "reading",
+      "playerId": "p2",
+      "quantity": 28,
+      "points": 28,
+      "timestamp": 1786417815981,
+      "bookId": "74f980dc-5d04-4e5e-9309-eefca4b35382"
+    },
+    {
+      "id": "655a98b9-48ed-4fe1-af22-845f90355b90",
+      "activityId": "reading",
+      "playerId": "p1",
+      "quantity": 5,
+      "points": 5,
+      "timestamp": 1786417848921,
+      "bookId": "a4e3bc9c-68c9-4ee7-b34a-5a6a3107f70c"
+    },
+    {
+      "id": "577b82ce-e98a-4b46-9db6-1dc01e831510",
+      "activityId": "exercise",
+      "playerId": "p1",
+      "quantity": 23,
+      "points": 23,
+      "timestamp": 1786418164201
+    },
+    {
+      "id": "e84a6e7b-4966-4134-82c2-2fdca45077be",
+      "activityId": "reading",
+      "playerId": "p1",
+      "quantity": 14,
+      "points": 14,
+      "timestamp": 1786419493534,
+      "bookId": "a4e3bc9c-68c9-4ee7-b34a-5a6a3107f70c"
+    },
+    {
+      "id": "58b3519c-fdfe-43ce-8b04-6f0541e24ec1",
+      "activityId": "exercise",
+      "playerId": "p1",
+      "quantity": 45,
+      "points": 45,
+      "timestamp": 1786502746987
+    },
+    {
+      "id": "c502d73d-1c7e-4b4e-a984-887ec6316e74",
+      "activityId": "exercise",
+      "playerId": "p2",
+      "quantity": 35,
+      "points": 35,
+      "timestamp": 1786502753255
+    },
+    {
+      "id": "f108a292-8530-4d2f-8bb8-7efe9f189cc3",
+      "activityId": "alcohol",
+      "playerId": "p2",
+      "quantity": 1,
+      "points": -50,
+      "timestamp": 1786676107242
+    },
+    {
+      "id": "18e4e22e-90f8-487d-88e4-55912aeb4929",
+      "activityId": "custom-ebd3f00a",
+      "playerId": "p2",
+      "quantity": 3,
+      "points": -75,
+      "timestamp": 1786676111604
+    },
+    {
+      "id": "7e2b8530-cd3a-4ec7-8fc5-321b5b251096",
+      "activityId": "exercise",
+      "playerId": "p2",
+      "quantity": 35,
+      "points": 35,
+      "timestamp": 1786676125521
+    },
+    {
+      "id": "9f7873ae-dc6b-4235-be8d-a01489edcd3e",
+      "activityId": "exercise",
+      "playerId": "p1",
+      "quantity": 35,
+      "points": 35,
+      "timestamp": 1786676131708
+    },
+    {
+      "id": "3df0f464-8960-4aa3-97b0-f56b8459086d",
+      "activityId": "reading",
+      "playerId": "p2",
+      "quantity": 14,
+      "points": 14,
+      "timestamp": 1786676183064,
+      "bookId": "74f980dc-5d04-4e5e-9309-eefca4b35382"
+    },
+    {
+      "id": "b2b6758b-8c1e-4db9-b7e8-2b52fda59e23",
+      "activityId": "reading",
+      "playerId": "p1",
+      "quantity": 25,
+      "points": 25,
+      "timestamp": 1786676197112,
+      "bookId": "a4e3bc9c-68c9-4ee7-b34a-5a6a3107f70c"
+    },
+    {
+      "id": "e5b83dd0-a63d-4c32-8839-2224e21791d2",
+      "activityId": "custom-ebd3f00a",
+      "playerId": "p1",
+      "quantity": 2,
+      "points": -50,
+      "timestamp": 1786933872478
+    },
+    {
+      "id": "18a792dd-99c8-4d8d-8feb-e43ec438781e",
+      "activityId": "exercise",
+      "playerId": "p1",
+      "quantity": 45,
+      "points": 45,
+      "timestamp": 1786933900941
+    },
+    {
+      "id": "27d78a60-5d34-467b-9330-32331639ebba",
+      "activityId": "exercise",
+      "playerId": "p2",
+      "quantity": 45,
+      "points": 90,
+      "timestamp": 1786933912750,
+      "crit": true
+    },
+    {
+      "id": "edf86dc8-ead2-41ee-83ad-34dd3f5a5e6c",
+      "activityId": "exercise",
+      "playerId": "p2",
+      "quantity": 30,
+      "points": 30,
+      "timestamp": 1786933928111
+    },
+    {
+      "id": "a4c552d6-05d6-4ba2-b09a-becd69961d85",
+      "activityId": "exercise",
+      "playerId": "p2",
+      "quantity": 15,
+      "points": 15,
+      "timestamp": 1786933934390
+    },
+    {
+      "id": "e66af13f-4b5c-4537-b736-f66e94938f1f",
+      "activityId": "custom-ebd3f00a",
+      "playerId": "p2",
+      "quantity": 2,
+      "points": -50,
+      "timestamp": 1786933957793
+    },
+    {
+      "id": "7929ba59-f30b-42d3-ac81-48ae993e9858",
+      "activityId": "exercise",
+      "playerId": "p1",
+      "quantity": 45,
+      "points": 45,
+      "timestamp": 1787016882751
+    },
+    {
+      "id": "1aae9d93-cd5b-456b-8011-cb681b43ec67",
+      "activityId": "exercise",
+      "playerId": "p2",
+      "quantity": 45,
+      "points": 45,
+      "timestamp": 1787016884119
+    },
+    {
+      "id": "102ee81e-1e70-487a-86fa-a5a3e0cfcf86",
+      "activityId": "reading",
+      "playerId": "p2",
+      "quantity": 34,
+      "points": 34,
+      "timestamp": 1787016902472,
+      "bookId": "74f980dc-5d04-4e5e-9309-eefca4b35382"
+    },
+    {
+      "id": "35145772-d0e4-420e-aa9d-8e61ce357e94",
+      "activityId": "exercise",
+      "playerId": "p1",
+      "quantity": 45,
+      "points": 45,
+      "timestamp": 1787106708066
+    },
+    {
+      "id": "ab301d3c-7b0c-4cf9-9564-8c39a5f47a0c",
+      "activityId": "exercise",
+      "playerId": "p2",
+      "quantity": 25,
+      "points": 25,
+      "timestamp": 1787106720040
+    },
+    {
+      "id": "c8668e5d-19af-490f-800f-cf5a256c4221",
+      "activityId": "reading",
+      "playerId": "p2",
+      "quantity": 36,
+      "points": 36,
+      "timestamp": 1787106739658,
+      "bookId": "74f980dc-5d04-4e5e-9309-eefca4b35382"
+    },
+    {
+      "id": "c38f202d-377b-4c20-80b6-88ce855638ee",
+      "activityId": "exercise",
+      "playerId": "p2",
+      "quantity": 40,
+      "points": 40,
+      "timestamp": 1787330630833
+    },
+    {
+      "id": "862ccca5-e954-4fce-ba3e-240f2eae0699",
+      "activityId": "exercise",
+      "playerId": "p2",
+      "quantity": 35,
+      "points": 35,
+      "timestamp": 1787330633778
+    },
+    {
+      "id": "18f20254-4bb2-42a9-a14a-0f059c9db684",
+      "activityId": "reading",
+      "playerId": "p2",
+      "quantity": 30,
+      "points": 30,
+      "timestamp": 1787330644794,
+      "bookId": "74f980dc-5d04-4e5e-9309-eefca4b35382"
+    },
+    {
+      "id": "19b714c7-7f4f-4f0d-9a5a-18bfa14d701c",
+      "activityId": "exercise",
+      "playerId": "p1",
+      "quantity": 45,
+      "points": 45,
+      "timestamp": 1787330660881
+    },
+    {
+      "id": "ac660881-a57a-45e2-97eb-c9589c79ef0c",
+      "activityId": "exercise",
+      "playerId": "p1",
+      "quantity": 45,
+      "points": 45,
+      "timestamp": 1787330662386
+    },
+    {
+      "id": "a551aaf4-0cc4-4d8a-ac5d-8982e70a954d",
+      "activityId": "exercise",
+      "playerId": "p1",
+      "quantity": 45,
+      "points": 45,
+      "timestamp": 1787450852706
+    },
+    {
+      "id": "66ce8664-8c43-4339-bd34-65f311c03408",
+      "activityId": "exercise",
+      "playerId": "p2",
+      "quantity": 45,
+      "points": 45,
+      "timestamp": 1787450856952
+    },
+    {
+      "id": "1459156a-e9bb-4631-b362-98fa9480ceb8",
+      "activityId": "custom-ebd3f00a",
+      "playerId": "p1",
+      "quantity": 2,
+      "points": -50,
+      "timestamp": 1787450869765
+    },
+    {
+      "id": "988f89e1-841c-4f4e-9021-48d58ad2e379",
+      "activityId": "custom-ebd3f00a",
+      "playerId": "p2",
+      "quantity": 2,
+      "points": -50,
+      "timestamp": 1787450872486
+    }
+  ],
+  "prize": "🏝️ A long weekend getaway",
+  "books": [
+    {
+      "id": "fc2adad3-52ca-4e4e-bde2-8064bb710748",
+      "title": "Dancing with the Devil",
+      "totalPages": 172,
+      "currentPage": 172,
+      "activityId": "reading",
+      "createdAt": 1783651709539
+    },
+    {
+      "id": "74f980dc-5d04-4e5e-9309-eefca4b35382",
+      "title": "Trust",
+      "totalPages": 402,
+      "currentPage": 402,
+      "activityId": "reading",
+      "createdAt": 1783651823886
+    },
+    {
+      "id": "a4e3bc9c-68c9-4ee7-b34a-5a6a3107f70c",
+      "title": "Don Quixote",
+      "totalPages": 940,
+      "currentPage": 742,
+      "activityId": "reading",
+      "createdAt": 1785809949539
+    }
+  ],
+  "questPool": [
+    {
+      "id": "page-turner",
+      "name": "Page Turner",
+      "emoji": "📖",
+      "description": "Read 15 pages today (team)",
+      "bonus": 5,
+      "target": 100,
+      "unit": "pages",
+      "metric": {
+        "kind": "unit-quantity",
+        "match": "page"
+      }
+    },
+    {
+      "id": "quest-2aa338f4",
+      "name": "Gym Buddies",
+      "emoji": "🎯",
+      "description": "Work out for 300 minutes this week (team)",
+      "bonus": 5,
+      "target": 300,
+      "unit": "min",
+      "metric": {
+        "kind": "unit-quantity",
+        "match": "min"
+      }
+    }
+  ]
+}

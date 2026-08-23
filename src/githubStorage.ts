@@ -5,7 +5,7 @@ import { computeQuests, defaultQuestPool } from './quests'
 const API_ROOT = 'https://api.github.com'
 const CACHE_KEY = 'goalgetter-state-cache-v1'
 const TOKEN_SESSION_KEY = 'goalgetter-github-token'
-const MAX_WRITE_ATTEMPTS = 4
+const MAX_WRITE_ATTEMPTS = 6
 
 export interface EncryptedToken {
   version: 1
@@ -42,6 +42,7 @@ export class GithubStorageError extends Error {
 let activeConfig: GithubConfig | null = null
 let activeToken = ''
 let usingCache = false
+let mutationQueue: Promise<void> = Promise.resolve()
 const statusListeners = new Set<(cached: boolean) => void>()
 
 function bytesToBase64(bytes: Uint8Array): string {
@@ -335,7 +336,12 @@ export async function fetchGithubState(): Promise<GameState> {
   }
 }
 
-export async function mutateGithubState<T>(
+function conflictDelay(attempt: number): Promise<void> {
+  const milliseconds = 100 * 2 ** attempt + Math.floor(Math.random() * 150)
+  return new Promise((resolve) => window.setTimeout(resolve, milliseconds))
+}
+
+async function performGithubMutation<T>(
   message: string,
   change: (state: GameState) => T,
 ): Promise<{ state: GameState; result: T }> {
@@ -356,8 +362,29 @@ export async function mutateGithubState<T>(
         !(error instanceof GithubStorageError) ||
         (error.status !== 409 && error.status !== 422)
       ) break
+      await conflictDelay(attempt)
     }
   }
   setCacheStatus(true)
   throw lastError
+}
+
+/**
+ * Serialize writes made by this tab. GitHub's Contents API rejects two updates
+ * based on the same file SHA, so a local queue avoids avoidable conflicts while
+ * performGithubMutation still retries genuine cross-device races.
+ */
+export function mutateGithubState<T>(
+  message: string,
+  change: (state: GameState) => T,
+): Promise<{ state: GameState; result: T }> {
+  const pending = mutationQueue.then(
+    () => performGithubMutation(message, change),
+    () => performGithubMutation(message, change),
+  )
+  mutationQueue = pending.then(
+    () => undefined,
+    () => undefined,
+  )
+  return pending
 }

@@ -1039,6 +1039,14 @@
       "quantity": 45,
       "points": 45,
       "timestamp": 1787518342422
+    },
+    {
+      "id": "115d8efa-7b1b-426d-8a7c-535017febc67",
+      "activityId": "exercise",
+      "playerId": "p1",
+      "quantity": 45,
+      "points": 45,
+      "timestamp": 1787518688432
     }
   ],
   "prize": "🏝️ A long weekend getaway",

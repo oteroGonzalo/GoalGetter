@@ -32,6 +32,99 @@ body {
   min-height: 100vh;
 }
 
+/* ---------- GitHub unlock / one-time setup ---------- */
+.auth-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.auth-card {
+  width: min(100%, 460px);
+  display: grid;
+  gap: 16px;
+  padding: 30px;
+  background: var(--panel);
+  border: 2px solid var(--panel-border);
+  border-radius: var(--radius);
+  box-shadow: 0 18px 50px rgba(53, 39, 92, 0.14);
+}
+
+.auth-card h1,
+.auth-card p {
+  margin: 0;
+}
+
+.auth-card p {
+  color: var(--text-dim);
+  line-height: 1.55;
+}
+
+.auth-icon {
+  font-size: 2.8rem;
+  line-height: 1;
+}
+
+.auth-card label {
+  display: grid;
+  gap: 6px;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.auth-card input {
+  width: 100%;
+  padding: 11px 12px;
+  border: 2px solid var(--panel-border);
+  border-radius: 10px;
+  background: #fffdf9;
+  color: var(--text);
+  font: inherit;
+}
+
+.auth-card input:focus {
+  border-color: var(--accent-3);
+  outline: none;
+}
+
+.auth-card button {
+  padding: 12px 16px;
+  border: 0;
+  border-radius: 10px;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  color: white;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 900;
+}
+
+.auth-card button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.auth-error {
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #fff0f3;
+  color: var(--bad);
+}
+
+.auth-success {
+  display: grid;
+  gap: 8px;
+  padding: 14px;
+  border-radius: 12px;
+  background: #eafaf4;
+  color: var(--good);
+}
+
+.auth-success span {
+  color: var(--text);
+  line-height: 1.5;
+}
+
 h1,
 h2,
 h3 {
@@ -1051,6 +1144,67 @@ h3 {
   display: block;
 }
 
+/* ---------- Daily quest editor ---------- */
+.settings-quest {
+  border: 2px solid #efe8ff;
+  border-radius: 12px;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: grid;
+  gap: 6px;
+}
+
+.settings-quest-top {
+  display: grid;
+  grid-template-columns: 52px 1fr auto 32px;
+  gap: 6px;
+  align-items: end;
+}
+
+.settings-quest-rule {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: end;
+}
+
+.settings-quest-rule select {
+  background: #ffffff;
+  border: 2px solid #e6dcff;
+  border-radius: 10px;
+  color: var(--text);
+  padding: 8px;
+  font-size: 0.85rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  flex: 1;
+  min-width: 180px;
+}
+
+.settings-quest-rule select:focus {
+  outline: none;
+  border-color: var(--accent-2);
+}
+
+.settings-quest-field {
+  display: grid;
+  gap: 2px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--text-dim);
+  text-transform: uppercase;
+}
+
+.settings-quest-field .input-number,
+.settings-quest-field .input-unit {
+  width: 90px;
+}
+
+.settings-quest-desc {
+  width: 100%;
+  font-weight: 500;
+}
+
 .settings-note {
   font-size: 0.8rem;
   color: var(--text-dim);
@@ -1068,6 +1222,309 @@ h3 {
 .modal-actions-right {
   display: flex;
   gap: 10px;
+}
+
+/* ---------- Daily quests ---------- */
+.quests-panel {
+  border-color: #d9c9ff;
+  background: linear-gradient(160deg, #ffffff, #f6f0ff);
+}
+
+.quests-sub {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-dim);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.quests-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.quest-card {
+  background: #ffffff;
+  border: 2px solid #e6dcff;
+  border-radius: 16px;
+  padding: 12px 14px;
+  transition: transform 0.15s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.quest-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(143, 75, 245, 0.14);
+}
+
+.quest-card.quest-done {
+  border-color: var(--gold);
+  background: linear-gradient(160deg, #fff8dd, #ffefc2);
+  box-shadow: 0 6px 18px rgba(255, 176, 32, 0.25);
+}
+
+.quest-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.quest-emoji {
+  font-size: 1.4rem;
+}
+
+.quest-name {
+  flex: 1;
+  font-weight: 800;
+}
+
+.quest-bonus {
+  font-weight: 900;
+  font-size: 0.8rem;
+  color: #6d28d9;
+  background: #efe6ff;
+  border-radius: 10px;
+  padding: 3px 8px;
+}
+
+.quest-done .quest-bonus {
+  color: #b26b00;
+  background: #ffe9b8;
+}
+
+.quest-desc {
+  margin-top: 4px;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+.quest-bar {
+  margin-top: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(143, 75, 245, 0.1);
+  overflow: hidden;
+}
+
+.quest-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--accent-3), var(--accent-2));
+  transition: width 0.5s ease;
+}
+
+.quest-done .quest-bar-fill {
+  background: linear-gradient(90deg, var(--gold), #ff8a3d);
+}
+
+.quest-progress {
+  margin-top: 5px;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}
+
+.quest-done .quest-progress {
+  color: #b26b00;
+  font-weight: 800;
+}
+
+/* ---------- Race track ---------- */
+.race-panel {
+  border-color: #bfe6ff;
+  background: linear-gradient(160deg, #ffffff, #f0f9ff);
+}
+
+.race-lane {
+  margin-bottom: 14px;
+}
+
+.race-lane:last-child {
+  margin-bottom: 0;
+}
+
+.race-track {
+  position: relative;
+  height: 40px;
+  border-radius: 12px;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 18px,
+      rgba(53, 39, 92, 0.12) 18px 30px
+    )
+    center / 100% 3px no-repeat,
+    #eef4fb;
+  border: 2px solid #d8e8f7;
+  overflow: hidden;
+}
+
+.race-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: linear-gradient(90deg, rgba(255, 138, 61, 0.18), rgba(247, 79, 142, 0.22));
+  transition: width 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.race-runner {
+  position: absolute;
+  top: 50%;
+  left: calc(6px + (100% - 48px) * var(--p) / 100);
+  transform: translateY(-50%) scaleX(-1);
+  font-size: 1.7rem;
+  z-index: 2;
+  transition: left 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  filter: drop-shadow(0 3px 6px rgba(53, 39, 92, 0.25));
+}
+
+.race-flag {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  font-size: 1.3rem;
+}
+
+.race-label {
+  margin-top: 4px;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  font-weight: 700;
+}
+
+/* ---------- Weekly recap ---------- */
+.recap-card {
+  background: linear-gradient(135deg, #eefbf0, #e2f6ff);
+  border: 2px solid #a9e8c1;
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  text-align: center;
+}
+
+.recap-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #0a8f5b;
+  font-weight: 800;
+}
+
+.recap-text {
+  margin-top: 4px;
+  font-size: 1rem;
+}
+
+.recap-delta {
+  margin-left: 8px;
+  font-size: 0.8rem;
+  font-weight: 900;
+}
+
+.recap-delta.up {
+  color: var(--good);
+}
+
+.recap-delta.down {
+  color: var(--bad);
+}
+
+.recap-mvp {
+  margin-top: 3px;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+/* ---------- Celebration overlay ---------- */
+.celebration {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 90;
+  pointer-events: none;
+}
+
+.celebration-card {
+  background: #ffffff;
+  border: 3px solid var(--gold);
+  border-radius: 24px;
+  padding: 26px 42px;
+  text-align: center;
+  box-shadow: 0 24px 70px rgba(53, 39, 92, 0.35), 0 0 40px rgba(255, 176, 32, 0.35);
+  animation: celebration-pop 2.6s ease forwards;
+  max-width: min(90vw, 460px);
+}
+
+.celebration-card.celebration-crit {
+  border-color: var(--bad);
+  background: linear-gradient(160deg, #ffffff, #fff3f6);
+  box-shadow: 0 24px 70px rgba(53, 39, 92, 0.35), 0 0 40px rgba(240, 66, 107, 0.4);
+}
+
+.celebration-card.celebration-level {
+  border-color: var(--accent-3);
+  background: linear-gradient(160deg, #ffffff, #f6f0ff);
+  box-shadow: 0 24px 70px rgba(53, 39, 92, 0.35), 0 0 40px rgba(143, 75, 245, 0.4);
+}
+
+@keyframes celebration-pop {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  10% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+  14% {
+    transform: scale(1);
+  }
+  82% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.92) translateY(-16px);
+    opacity: 0;
+  }
+}
+
+.celebration-emoji {
+  font-size: 3.4rem;
+  line-height: 1;
+}
+
+.celebration-title {
+  font-family: var(--font-head);
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-top: 8px;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.celebration-sub {
+  margin-top: 4px;
+  font-size: 0.95rem;
+  color: var(--text-dim);
+  font-weight: 700;
+}
+
+/* ---------- Feed extras ---------- */
+.feed-points.bonus {
+  color: #d98a00;
+}
+
+.feed-crit {
+  color: var(--bad);
+  font-weight: 900;
+  font-size: 0.78rem;
+}
+
+.btn-sound {
+  padding: 9px 12px;
 }
 
 /* ---------- Responsive ---------- */

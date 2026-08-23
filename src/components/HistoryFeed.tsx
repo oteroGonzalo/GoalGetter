@@ -39,19 +39,24 @@ export function HistoryFeed({ state, onUndo }: Props) {
             <span className="feed-avatar">{player?.avatar ?? '❓'}</span>
             <span className="feed-text">
               <strong>{player?.name ?? 'Unknown'}</strong>{' '}
-              {book
-                ? `📖 ${book.title}`
-                : activity
-                  ? `${activity.emoji} ${activity.name}`
-                  : 'a deleted activity'}
+              {entry.questId
+                ? `${entry.questEmoji ?? '🎁'} Daily quest: ${entry.questName ?? 'Bonus'}`
+                : book
+                  ? `📖 ${book.title}`
+                  : activity
+                    ? `${activity.emoji} ${activity.name}`
+                    : 'a deleted activity'}
               {activity && (
                 <span className="feed-qty">
                   {' '}
                   — {entry.quantity} {book ? 'pages' : activity.unit}
                 </span>
               )}
+              {entry.crit && <span className="feed-crit"> 💥 CRIT ×2</span>}
             </span>
-            <span className={`feed-points ${entry.points >= 0 ? 'pos' : 'neg'}`}>
+            <span
+              className={`feed-points ${entry.questId ? 'bonus' : entry.points >= 0 ? 'pos' : 'neg'}`}
+            >
               {entry.points > 0 ? `+${entry.points}` : entry.points}
             </span>
             <span className="feed-time">{formatTime(entry.timestamp)}</span>

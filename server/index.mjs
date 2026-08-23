@@ -3,10 +3,14 @@ import fs from 'node:fs'
 import path from 'node:path'
 import crypto from 'node:crypto'
 import { fileURLToPath } from 'node:url'
+import { METRIC_KINDS, computeQuests, defaultQuestPool, evaluateQuests } from './quests.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const DATA_FILE = path.join(__dirname, 'data.json')
+const DATA_FILE = process.env.DATA_FILE || path.join(__dirname, 'data.json')
 const PORT = Number(process.env.PORT) || 3001
+
+/** Chance that a positive log lands a critical hit and scores double points. */
+const CRIT_CHANCE = 0.01
 
 function defaultState() {
   return {
@@ -23,6 +27,7 @@ function defaultState() {
     log: [],
     books: [],
     prize: '🏝️ A long weekend getaway',
+    questPool: defaultQuestPool(),
   }
 }
 
@@ -42,6 +47,7 @@ function loadState() {
     if (parsed.players && parsed.activities && parsed.log) {
       if (typeof parsed.prize !== 'string') parsed.prize = defaultState().prize
       if (!Array.isArray(parsed.books)) parsed.books = []
+      if (!Array.isArray(parsed.questPool)) parsed.questPool = defaultQuestPool()
       return parsed
     }
   } catch {
@@ -69,15 +75,22 @@ app.use((req, res, next) => {
   next()
 })
 
-/** Full state: players, activities and the complete log. */
+/** The persisted state plus today's daily quests (computed, never stored). */
+function stateWithQuests() {
+  return { ...state, quests: computeQuests(state) }
+}
+
+/** Full state: players, activities, the complete log and today's quests. */
 app.get('/api/state', (_req, res) => {
-  res.json(state)
+  res.json(stateWithQuests())
 })
 
 /**
  * Log an activity.
  * Body: { "playerId": "p1" | "p2", "activityId": "exercise", "quantity": 30 }
- * Points = round(quantity × the activity's pointsPerUnit).
+ * Points = round(quantity × the activity's pointsPerUnit). Positive logs have
+ * a CRIT_CHANCE of landing a critical hit that doubles the points.
+ * Completing a daily quest automatically appends bonus entries (returned in "bonus").
  */
 app.post('/api/log', (req, res) => {
   const { playerId, activityId, quantity } = req.body ?? {}
@@ -89,17 +102,21 @@ app.post('/api/log', (req, res) => {
   if (!Number.isFinite(qty) || qty <= 0) {
     return res.status(400).json({ error: 'quantity must be a positive number' })
   }
+  const basePoints = Math.round(qty * activity.pointsPerUnit)
+  const crit = basePoints > 0 && Math.random() < CRIT_CHANCE
   const entry = {
     id: crypto.randomUUID(),
     activityId,
     playerId,
     quantity: qty,
-    points: Math.round(qty * activity.pointsPerUnit),
+    points: crit ? basePoints * 2 : basePoints,
     timestamp: Date.now(),
+    ...(crit ? { crit: true } : {}),
   }
   state.log.push(entry)
+  const bonus = evaluateQuests(state, playerId)
   saveState()
-  res.status(201).json(entry)
+  res.status(201).json({ entry, bonus, state: stateWithQuests() })
 })
 
 /** Undo a log entry by id. If it came from a book, rewind that book's page too. */
@@ -115,9 +132,51 @@ app.delete('/api/log/:id', (req, res) => {
   res.json({ ok: true })
 })
 
-/** Replace players, activities and/or prize (used by the Settings screen). */
+/**
+ * Normalize and validate an edited quest pool. Returns { pool } on success
+ * or { error } describing the first bad quest.
+ */
+function sanitizeQuestPool(raw) {
+  const pool = []
+  for (const q of raw) {
+    const name = typeof q?.name === 'string' ? q.name.trim() : ''
+    if (!name) return { error: 'every quest needs a name' }
+    const bonus = Number(q.bonus)
+    const target = Number(q.target)
+    if (!Number.isFinite(bonus) || bonus <= 0) {
+      return { error: `quest "${name}": bonus must be a positive number` }
+    }
+    if (!Number.isFinite(target) || target <= 0) {
+      return { error: `quest "${name}": target must be a positive number` }
+    }
+    const metric = q.metric ?? {}
+    if (!METRIC_KINDS.includes(metric.kind)) {
+      return { error: `quest "${name}": unknown measure "${metric.kind}"` }
+    }
+    pool.push({
+      id: typeof q.id === 'string' && q.id ? q.id : `quest-${crypto.randomUUID().slice(0, 8)}`,
+      name,
+      emoji: typeof q.emoji === 'string' && q.emoji ? q.emoji : '🎯',
+      description: typeof q.description === 'string' ? q.description : '',
+      bonus,
+      target,
+      unit: typeof q.unit === 'string' ? q.unit : '',
+      metric: {
+        kind: metric.kind,
+        ...(metric.kind === 'unit-quantity' ? { match: String(metric.match ?? '') } : {}),
+        ...(metric.kind === 'before-hour' ? { hour: Number(metric.hour) || 10 } : {}),
+        ...(metric.kind === 'points-each'
+          ? { perPlayer: Number(metric.perPlayer) || Math.ceil(target / 2) }
+          : {}),
+      },
+    })
+  }
+  return { pool }
+}
+
+/** Replace players, activities, prize and/or quest pool (used by the Settings screen). */
 app.put('/api/settings', (req, res) => {
-  const { players, activities, prize } = req.body ?? {}
+  const { players, activities, prize, questPool } = req.body ?? {}
   if (prize !== undefined) {
     if (typeof prize !== 'string') {
       return res.status(400).json({ error: 'prize must be a string' })
@@ -136,8 +195,16 @@ app.put('/api/settings', (req, res) => {
     }
     state.activities = activities
   }
+  if (questPool !== undefined) {
+    if (!Array.isArray(questPool)) {
+      return res.status(400).json({ error: 'questPool must be an array' })
+    }
+    const result = sanitizeQuestPool(questPool)
+    if (result.error) return res.status(400).json({ error: result.error })
+    state.questPool = result.pool
+  }
   saveState()
-  res.json(state)
+  res.json(stateWithQuests())
 })
 
 /**
@@ -174,7 +241,7 @@ app.post('/api/books', (req, res) => {
   }
   state.books.push(book)
   saveState()
-  res.status(201).json(state)
+  res.status(201).json(stateWithQuests())
 })
 
 /**
@@ -204,19 +271,23 @@ app.post('/api/books/:id/progress', (req, res) => {
     return res.status(400).json({ error: 'No reading activity to credit — add one in Settings first' })
   }
   const pagesRead = target - book.currentPage
+  const basePoints = Math.round(pagesRead * activity.pointsPerUnit)
+  const crit = basePoints > 0 && Math.random() < CRIT_CHANCE
   const entry = {
     id: crypto.randomUUID(),
     activityId: activity.id,
     playerId,
     quantity: pagesRead,
-    points: Math.round(pagesRead * activity.pointsPerUnit),
+    points: crit ? basePoints * 2 : basePoints,
     timestamp: Date.now(),
     bookId: book.id,
+    ...(crit ? { crit: true } : {}),
   }
   book.currentPage = target
   state.log.push(entry)
+  const bonus = evaluateQuests(state, playerId)
   saveState()
-  res.status(201).json({ state, entry })
+  res.status(201).json({ state: stateWithQuests(), entry, bonus })
 })
 
 /** Edit a book's title, total pages, or correct its current page. */
@@ -245,7 +316,7 @@ app.put('/api/books/:id', (req, res) => {
     book.currentPage = Math.min(Math.round(cp), book.totalPages)
   }
   saveState()
-  res.json(state)
+  res.json(stateWithQuests())
 })
 
 /** Remove a book. Existing reading points already logged from it are kept. */
@@ -254,7 +325,7 @@ app.delete('/api/books/:id', (req, res) => {
   state.books = state.books.filter((b) => b.id !== req.params.id)
   if (state.books.length === before) return res.status(404).json({ error: 'Book not found' })
   saveState()
-  res.json(state)
+  res.json(stateWithQuests())
 })
 
 /** Clear the whole log (progress reset). */

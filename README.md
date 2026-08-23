@@ -2,61 +2,60 @@
 
 A motivational, gamified point tracker for two players working toward a shared goal.
 
-Log positive activities by **quantity** — minutes exercised, pages read, meals eaten —
-and each activity's points-per-unit converts that into points. Penalties (alcohol,
-eating out, junk food…) subtract from the team total. Every positive activity has its
-own point target, and all targets add up to the team goal shown in the big progress ring.
-
 ## Features
 
-- **Quantity-based logging** — enter 30 min of exercise or 20 pages read; points = quantity × pts/unit.
-- **Team goal ring** — see at a glance how far you are from the objective, with points remaining.
-- **Per-activity targets** — each activity has its own progress bar contributing to the total.
-- **Two players** — individual scores, daily streaks, and a crown for the leader.
-- **Penalties** — negative activities subtract from the team total.
-- **Gamification** — team levels with titles, 10 achievements, confetti at 25/50/75/100% milestones.
-- **Activity feed** — recent history with one-click undo.
-- **Fully configurable** — edit players, activities, units, pts/unit and targets in Settings.
-- **Shared data via API** — an Express server stores everything in `server/data.json`, so both
-  players see the same state (screens auto-refresh every 5 s), and you can log points from
-  scripts, shortcuts or other devices.
+- Quantity-based activity logging with configurable points and targets.
+- Two players, individual scores, streaks, achievements, levels, and daily quests.
+- Positive activities, penalties, reading progress, and a shared prize.
+- Static GitHub Pages hosting with shared state stored as JSON on a `data` branch.
+- A cached local copy for reading during temporary network interruptions.
 
-## Running
+## Local development
 
 ```sh
 npm install
-npm run dev      # API server on :3001 + web app on :5173 (with /api proxy)
+npm run dev
 ```
 
-Production: `npm run build` then `npm start` — one process serves both the app and the API
-on http://localhost:3001.
+The first run shows a one-time setup screen because `public/github-config.json` does not yet
+contain an encrypted token.
 
-## API
+## One-time GitHub storage setup
 
-Base URL: `http://localhost:3001` (or `:5173/api/...` through the dev proxy). CORS is open.
+1. Create a fine-grained GitHub token restricted to this repository with only
+   **Contents: Read and write** permission.
+2. Run `npm run dev` and open the local URL.
+3. Enter the token and a strong shared password in the setup screen.
+4. The browser verifies access, encrypts the token locally with PBKDF2 and AES-GCM, and
+   downloads `github-config.json`.
+5. Replace `public/github-config.json` with that downloaded file.
+6. Commit and push the application to `main`.
 
-| Method | Path | Body | Description |
-| ------ | ---- | ---- | ----------- |
-| GET | `/api/state` | — | Full state: players, activities, log |
-| POST | `/api/log` | `{"playerId": "p1", "activityId": "exercise", "quantity": 30}` | Log a quantity; returns the created entry with computed points |
-| DELETE | `/api/log/:id` | — | Undo a log entry |
-| PUT | `/api/settings` | `{"players": [...], "activities": [...]}` | Replace players and/or activities |
-| POST | `/api/reset` | — | Clear all logged progress |
+The plaintext token and shared password must never be committed. The encrypted token is safe
+to publish for this personal use case as long as the password is strong and the token remains
+narrowly scoped.
 
-Example — log 30 minutes of exercise for player 1:
+On the first unlocked launch, GoalGetter creates the `data` branch and initializes
+`state.json` from the current `server/data.json`. Subsequent updates use GitHub's file SHA for
+conflict detection and retry against the newest state.
 
-```sh
-curl -X POST http://localhost:3001/api/log \
-  -H "Content-Type: application/json" \
-  -d '{"playerId": "p1", "activityId": "exercise", "quantity": 30}'
+## GitHub Pages
+
+The workflow in `.github/workflows/deploy-pages.yml` builds and deploys pushes to `main`.
+In the repository's **Settings → Pages**, select **GitHub Actions** as the publishing source.
+
+The deployed project URL is:
+
+```text
+https://oterogonzalo.github.io/GoalGetter/
 ```
 
-Activity ids are visible in `GET /api/state`. Defaults: `exercise` (min, 0.5 pts/min,
-target 400), `reading` (pages, 0.5 pts/page, target 200), and the penalties `alcohol`
-(drinks, −4) and `eating-out` (times, −5). Add more in Settings or via `PUT /api/settings`.
+## Data safety
 
-## Notes
+- The original `server/data.json` is retained as the migration source.
+- Remote updates create commits on the `data` branch, providing a recoverable history.
+- The browser caches the last successfully synchronized state in `localStorage`.
+- Keep an external copy of `server/data.json` until the remote `state.json` has been verified.
 
-- The team goal is the sum of all activity targets — change targets in Settings to change the goal.
-- Points-per-unit can be edited any time; past log entries keep the points they were logged with.
-- Data lives in `server/data.json` — back it up or delete it to start over.
+The legacy Express server remains in `server/` as a migration fallback, but the deployed app
+does not require or call it.

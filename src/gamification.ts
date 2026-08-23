@@ -140,6 +140,35 @@ export function computeAchievements(state: GameState, totals: Totals): Achieveme
   const allRounder =
     positiveActivities.length > 0 && positiveActivities.every((a) => (totals.byActivity[a.id] ?? 0) > 0)
 
+  const booksFinished = state.books.filter(
+    (b) => b.totalPages > 0 && b.currentPage >= b.totalPages,
+  ).length
+  const critCount = log.filter((e) => e.crit).length
+  const questCount = log.filter((e) => e.questId).length
+
+  const pointsByPlayerDay = new Map<string, number>()
+  for (const e of positives) {
+    const key = `${e.playerId}|${dayKey(new Date(e.timestamp))}`
+    pointsByPlayerDay.set(key, (pointsByPlayerDay.get(key) ?? 0) + e.points)
+  }
+  const bigDay = [...pointsByPlayerDay.values()].some((p) => p >= 75)
+
+  const earlyBird = positives.some((e) => new Date(e.timestamp).getHours() < 8)
+  const nightOwl = positives.some((e) => new Date(e.timestamp).getHours() >= 22)
+
+  // Confess a penalty, then bounce back with a positive log the same day.
+  const redemption = log.some(
+    (pen) =>
+      pen.points < 0 &&
+      log.some(
+        (pos) =>
+          pos.points > 0 &&
+          pos.playerId === pen.playerId &&
+          pos.timestamp > pen.timestamp &&
+          dayKey(new Date(pos.timestamp)) === dayKey(new Date(pen.timestamp)),
+      ),
+  )
+
   return [
     {
       id: 'first-steps',
@@ -177,6 +206,13 @@ export function computeAchievements(state: GameState, totals: Totals): Achieveme
       earned: bestStreak >= 7,
     },
     {
+      id: 'streak-14',
+      name: 'Volcanic',
+      emoji: '🌋',
+      description: '14-day streak by either player',
+      earned: bestStreak >= 14,
+    },
+    {
       id: 'beast-mode',
       name: 'Beast Mode',
       emoji: '🦁',
@@ -197,6 +233,69 @@ export function computeAchievements(state: GameState, totals: Totals): Achieveme
       description: '3+ good deeds and zero penalties in the last 7 days',
       earned:
         lastWeek.filter((e) => e.points > 0).length >= 3 && lastWeek.every((e) => e.points > 0),
+    },
+    {
+      id: 'big-day',
+      name: 'Big Day',
+      emoji: '💪',
+      description: 'One player earns 75+ points in a single day',
+      earned: bigDay,
+    },
+    {
+      id: 'early-bird',
+      name: 'Early Bird',
+      emoji: '🐦',
+      description: 'Log a positive activity before 8am',
+      earned: earlyBird,
+    },
+    {
+      id: 'night-owl',
+      name: 'Night Owl',
+      emoji: '🦉',
+      description: 'Log a positive activity after 10pm',
+      earned: nightOwl,
+    },
+    {
+      id: 'redemption',
+      name: 'Redemption Arc',
+      emoji: '😇',
+      description: 'Bounce back with points the same day as a confession',
+      earned: redemption,
+    },
+    {
+      id: 'bookworm',
+      name: 'Bookworm',
+      emoji: '📖',
+      description: 'Finish a book on the reading list',
+      earned: booksFinished >= 1,
+    },
+    {
+      id: 'library',
+      name: 'Home Library',
+      emoji: '🏛️',
+      description: 'Finish 3 books',
+      earned: booksFinished >= 3,
+    },
+    {
+      id: 'quest-hunter',
+      name: 'Quest Hunter',
+      emoji: '🗺️',
+      description: 'Complete 5 daily quests',
+      earned: questCount >= 5,
+    },
+    {
+      id: 'lucky-strike',
+      name: 'Lucky Strike',
+      emoji: '🍀',
+      description: 'Land a critical hit (double points!)',
+      earned: critCount >= 1,
+    },
+    {
+      id: 'crit-collector',
+      name: 'Crit Collector',
+      emoji: '💥',
+      description: 'Land 5 critical hits',
+      earned: critCount >= 5,
     },
     {
       id: 'halfway',

@@ -1,0 +1,13 @@
+{
+  "owner": "oteroGonzalo",
+  "repo": "GoalGetter",
+  "branch": "data",
+  "path": "state.json",
+  "encryptedToken": {
+    "version": 1,
+    "iterations": 600000,
+    "salt": "6UyUj73Fpd0XE+jjw9eH9A==",
+    "iv": "sxAPjszJDmo0aS+0",
+    "ciphertext": "WOCoBT/sN2+3dUoWVyXIBeG/fPw3G20UoCQMraKhh3aGMW37+uQF8EogZLe/lszZOXkIoepdWu2lX+C8VPz35KV7mlxBCDDPAqIGOYfRg1zaX1KxOeVMUevmChsUCElirQNqdjFC2TCf9BUQUg=="
+  }
+}

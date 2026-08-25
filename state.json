@@ -1090,6 +1090,15 @@
       "quantity": 30,
       "points": 30,
       "timestamp": 1787624446262
+    },
+    {
+      "id": "ee915051-7143-4758-be11-f77a8e0e4a1d",
+      "activityId": "reading",
+      "playerId": "p1",
+      "quantity": 28,
+      "points": 28,
+      "timestamp": 1787627891007,
+      "bookId": "a4e3bc9c-68c9-4ee7-b34a-5a6a3107f70c"
     }
   ],
   "prize": "🏝️ A long weekend getaway",
@@ -1114,7 +1123,7 @@
       "id": "a4e3bc9c-68c9-4ee7-b34a-5a6a3107f70c",
       "title": "Don Quixote",
       "totalPages": 940,
-      "currentPage": 772,
+      "currentPage": 800,
       "activityId": "reading",
       "createdAt": 1785809949539
     },

@@ -1182,6 +1182,14 @@
       "quantity": 30,
       "points": 30,
       "timestamp": 1787976115816
+    },
+    {
+      "id": "42caa7c3-8ee9-4f83-90c0-0b3715065013",
+      "activityId": "alcohol",
+      "playerId": "p2",
+      "quantity": 1,
+      "points": -50,
+      "timestamp": 1787976162067
     }
   ],
   "prize": "🏝️ A long weekend getaway",

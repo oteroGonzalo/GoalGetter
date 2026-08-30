@@ -1214,6 +1214,14 @@
       "quantity": 2,
       "points": -50,
       "timestamp": 1788057207095
+    },
+    {
+      "id": "dab6682c-235a-4e4b-8db6-c8f901329c78",
+      "activityId": "custom-ebd3f00a",
+      "playerId": "p2",
+      "quantity": 2,
+      "points": -50,
+      "timestamp": 1788057273223
     }
   ],
   "prize": "🏝️ A long weekend getaway",

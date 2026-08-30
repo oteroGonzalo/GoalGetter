@@ -1,3 +1,5 @@
+import type { PetState } from './pet'
+
 export type PlayerId = 'p1' | 'p2'
 
 export interface Player {
@@ -104,6 +106,8 @@ export interface GameState {
   books: Book[]
   /** What the team wins when the goal is reached. */
   prize: string
+  /** The shared site cat — one cat for both players. */
+  pet?: PetState
   /** Today's daily quests — computed by the server, never persisted. */
   quests?: Quest[]
   /** The editable pool today's quests are drawn from. */

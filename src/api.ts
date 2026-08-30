@@ -1,6 +1,7 @@
 import type { Activity, Book, GameState, LogEntry, Player, PlayerId, QuestDef } from './types'
 import { evaluateQuests } from './quests'
 import { fetchGithubState, mutateGithubState, subscribeStorageStatus } from './githubStorage'
+import { applyPet } from './pet'
 
 const CRIT_CHANCE = 0.01
 
@@ -110,6 +111,14 @@ export async function putSettings(
     state.activities = activities
     state.prize = prize
     if (questPool) state.questPool = sanitizeQuestPool(questPool)
+  })
+  return saved.state
+}
+
+/** Pet the shared cat (once per day across both players). */
+export async function petCat(): Promise<GameState> {
+  const saved = await mutateGithubState('pet the cat', (state) => {
+    state.pet = applyPet(state.pet)
   })
   return saved.state
 }

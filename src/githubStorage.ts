@@ -1,6 +1,7 @@
 import initialStateJson from '../server/data.json'
 import type { GameState } from './types'
 import { computeQuests, defaultQuestPool } from './quests'
+import { normalizePetState } from './pet'
 
 const API_ROOT = 'https://api.github.com'
 const CACHE_KEY = 'goalgetter-state-cache-v1'
@@ -77,6 +78,7 @@ function hydrateState(raw: GameState): GameState {
   state.books = Array.isArray(state.books) ? state.books : []
   state.questPool = Array.isArray(state.questPool) ? state.questPool : defaultQuestPool()
   state.prize = typeof state.prize === 'string' ? state.prize : ''
+  state.pet = normalizePetState(state.pet)
   state.quests = computeQuests(state)
   return state
 }

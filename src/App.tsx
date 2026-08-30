@@ -7,6 +7,7 @@ import {
   deleteLog,
   fetchState,
   logBookProgress,
+  petCat,
   postLog,
   putSettings,
   resetProgress,
@@ -42,14 +43,13 @@ import { RaceTrack } from './components/RaceTrack'
 import { WeeklyRecap } from './components/WeeklyRecap'
 import { Celebration, type CelebrationEvent } from './components/Celebration'
 import { DailyPet } from './components/DailyPet'
-import { usePetState } from './hooks/usePetState'
+import { effectivePet } from './pet'
 
 const MILESTONES = [25, 50, 75, 100]
 const POLL_INTERVAL_MS = 30_000
 const CELEBRATION_MS = 2600
 
 export default function App() {
-  const { petState, petPet } = usePetState()
   const [state, setState] = useState<GameState | null>(null)
   const [offline, setOffline] = useState(false)
   const [showSettings, setShowSettings] = useState(false)
@@ -225,6 +225,15 @@ export default function App() {
     toastTimer.current = window.setTimeout(() => setToast(null), 2500)
   }
 
+  async function petTheCat() {
+    try {
+      const fresh = await petCat()
+      setState(fresh)
+    } catch {
+      showToast('😿 Could not save the pet — check your connection')
+    }
+  }
+
   async function logActivity(activityId: string, playerId: PlayerId, quantity: number) {
     if (!state) return
     const activity = state.activities.find((a) => a.id === activityId)
@@ -375,7 +384,7 @@ export default function App() {
         </div>
       </header>
 
-      <DailyPet petState={petState} onPet={petPet} />
+      <DailyPet petState={effectivePet(state.pet)} onPet={petTheCat} />
 
       <section className="hero panel">
         <div className="hero-ring">

@@ -1,14 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
-import { catSheet, type PetAnimation, type PetType } from '../spriteConfig'
+import { catSheet, type PetAnimation } from '../spriteConfig'
 import { useSpriteImage } from '../hooks/useSpriteImage'
-
-export interface PetState {
-  petType: PetType
-  happiness: number // 0-100
-  lastPetted: string // ISO date (YYYY-MM-DD)
-  totalPets: number
-  streak: number // consecutive days petted
-}
+import { todayISO, type PetState } from '../pet'
 
 interface Props {
   petState: PetState
@@ -28,10 +21,6 @@ const EDGE = 10 // margin from viewport edges
 const WALK_SPEED = 0.7 // px per tick (~60fps)
 const RUN_SPEED = 2.6
 const HEART_MS = 1100
-
-export function todayISO(): string {
-  return new Date().toISOString().split('T')[0]
-}
 
 /**
  * The resident cat. It lives along the bottom edge of the site: wanders

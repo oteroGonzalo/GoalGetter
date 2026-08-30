@@ -28,7 +28,8 @@ export interface PetSheet {
 }
 
 export const catSheet: PetSheet = {
-  sheetUrl: '/sprites/cat/sheet.png',
+  // BASE_URL is '/' in dev and '/GoalGetter/' on GitHub Pages
+  sheetUrl: `${import.meta.env.BASE_URL}sprites/cat/sheet.png`,
   frameWidth: 32,
   frameHeight: 32,
   columns: 8,

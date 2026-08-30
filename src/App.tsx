@@ -41,12 +41,15 @@ import { DailyQuests } from './components/DailyQuests'
 import { RaceTrack } from './components/RaceTrack'
 import { WeeklyRecap } from './components/WeeklyRecap'
 import { Celebration, type CelebrationEvent } from './components/Celebration'
+import { DailyPet } from './components/DailyPet'
+import { usePetState } from './hooks/usePetState'
 
 const MILESTONES = [25, 50, 75, 100]
 const POLL_INTERVAL_MS = 30_000
 const CELEBRATION_MS = 2600
 
 export default function App() {
+  const { petState, petPet } = usePetState()
   const [state, setState] = useState<GameState | null>(null)
   const [offline, setOffline] = useState(false)
   const [showSettings, setShowSettings] = useState(false)
@@ -371,6 +374,8 @@ export default function App() {
           </button>
         </div>
       </header>
+
+      <DailyPet petState={petState} onPet={petPet} />
 
       <section className="hero panel">
         <div className="hero-ring">

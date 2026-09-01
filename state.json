@@ -1240,6 +1240,14 @@
       "points": 9,
       "timestamp": 1788229777238,
       "bookId": "a4e3bc9c-68c9-4ee7-b34a-5a6a3107f70c"
+    },
+    {
+      "id": "5d83aca3-f539-4eef-b083-88945126912e",
+      "activityId": "exercise",
+      "playerId": "p1",
+      "quantity": 40,
+      "points": 40,
+      "timestamp": 1788229866110
     }
   ],
   "prize": "🏝️ A long weekend getaway",

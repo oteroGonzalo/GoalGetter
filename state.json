@@ -1256,6 +1256,15 @@
       "quantity": 40,
       "points": 40,
       "timestamp": 1788229912911
+    },
+    {
+      "id": "538adeaf-504b-4efa-bf41-afb8e36c4021",
+      "activityId": "reading",
+      "playerId": "p2",
+      "quantity": 21,
+      "points": 21,
+      "timestamp": 1788230002372,
+      "bookId": "6f2ebd57-8d67-4c8b-96d0-24a61931ec74"
     }
   ],
   "prize": "🏝️ A long weekend getaway",
@@ -1288,7 +1297,7 @@
       "id": "6f2ebd57-8d67-4c8b-96d0-24a61931ec74",
       "title": "Funny Story",
       "totalPages": 384,
-      "currentPage": 62,
+      "currentPage": 83,
       "activityId": "reading",
       "createdAt": 1787455974580
     }

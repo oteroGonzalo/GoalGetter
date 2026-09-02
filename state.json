@@ -1332,8 +1332,8 @@
   ],
   "pet": {
     "happiness": 100,
-    "lastPetted": "2026-09-01",
-    "totalPets": 1,
-    "streak": 1
+    "lastPetted": "2026-09-02",
+    "totalPets": 2,
+    "streak": 2
   }
 }

@@ -1326,6 +1326,14 @@
       "points": 12,
       "timestamp": 1788490528823,
       "bookId": "6f2ebd57-8d67-4c8b-96d0-24a61931ec74"
+    },
+    {
+      "id": "23ed2243-fa98-4bd0-96b0-08943d4cd842",
+      "activityId": "alcohol",
+      "playerId": "p2",
+      "quantity": 2,
+      "points": -100,
+      "timestamp": 1788490640661
     }
   ],
   "prize": "🏝️ A long weekend getaway",
